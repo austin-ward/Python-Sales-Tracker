@@ -6,6 +6,11 @@ class Customer:
         self.make = make
         self.model = model
 
+    def display_info(self):
+        return f"{self.name}, {self.phone}, {self.make} {self.model}"
+    
+    
+
 def main():
     customers = []
 
