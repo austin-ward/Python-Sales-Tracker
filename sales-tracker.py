@@ -55,13 +55,30 @@ def main():
             customers.append(cash_customer)
             print("Cash customer added successfully.")
 
-            
+
         elif choice == "3":
-            print("Bye")
+            name = input("Enter customer name: ")
+            phone = input("Enter customer phone number: ")
+            make = input("Enter vehicle make: ")
+            model = input("Enter vehicle model: ")
+            customer = FinanceCustomer(name, phone, make, model)
+            customers.append(customer)
+            print("Finance customer added successfully.")
+
+        elif choice == "4":
+            if not customers:
+                print("No recent sales to display.")
+            else:
+                print("Recent Sales:")
+                for idx, customer in enumerate(customers, start=1):
+                    print(f"{idx}. {customer.display_info()}")
+
+        elif choice == "5":
+            print("Closing Sales Tracker.")
             break
+
         else:
-            print("Invalid option, please choose 1, 2, or 3 from the menu.")
-
-
+            print("Invalid option. Please enter a number between 1 and 5.")
+            
 if __name__ == "__main__":
     main()
