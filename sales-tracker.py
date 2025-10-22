@@ -28,10 +28,12 @@ def main():
     while True:
         print("Sales Tracker")
         print("1. Add new customer")
-        print("2. Show all customers")
-        print("3. Quit")
+        print("2. Add cash customer")
+        print("3. Add finance customer")
+        print("4. Show all customers")
+        print("5. Quit")
 
-        choice = input("Enter menu option 1-3: ")
+        choice = input("Enter menu option 1-5: ")
 
         if choice == "1":
             name = input("Enter customer name: ")
@@ -45,13 +47,15 @@ def main():
             print("Customer added successfully.")
         # This is accessing attributes from each Customer object
         elif choice == "2":
-            if not customers:
-                print("No sales yet.")
-            else:
-                print("Past sales")
-                for i, customer in enumerate(customers, 1):
-                    print(f"{i}. {customer.name}, {customer.phone}, {customer.make} {customer.model}")
+            name = input("Enter customer name: ")
+            phone = input("Enter customer phone number: ")
+            make = input("Enter vehicle make: ")
+            model = input("Enter vehicle model: ")
+            cash_customer = CashCustomer(name, phone, make, model)
+            customers.append(cash_customer)
+            print("Cash customer added successfully.")
 
+            
         elif choice == "3":
             print("Bye")
             break
