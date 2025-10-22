@@ -9,7 +9,18 @@ class Customer:
     def display_info(self):
         return f"{self.name}, {self.phone}, {self.make} {self.model}"
     
+
+# subclass for customers who paid in cash
+class CashCustomer(Customer):
+    def display_info(self):
+        return super().display_info() + " (Paid in Cash)"
     
+# subclass for customers who financed their vehicle
+class FinanceCustomer(Customer):
+    def display_info(self):
+        return super().display_info() + " (Financed Vehicle)"
+    
+
 
 def main():
     customers = []
